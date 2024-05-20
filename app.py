@@ -1,10 +1,15 @@
 from flask import Flask, render_template
+import os
 
 # Create Flask app
 app = Flask(__name__)
 
 # Initialize the LED state
 led_state = "OFF"
+
+# Custom Jinja environment to load templates from the same directory as app.py
+template_path = os.path.abspath(os.path.dirname(__file__))
+app.jinja_loader.searchpath.append(template_path)
 
 @app.route('/')
 def index():
@@ -30,4 +35,5 @@ def state():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
+
 
