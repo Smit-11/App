@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 
-# Create Flask app and specify the template folder location
-app = Flask(__name__, template_folder='/Users/kambli/Desktop/App/templates')
+# Create Flask app
+app = Flask(__name__)
 
 # Initialize the LED state
 led_state = "OFF"
@@ -30,3 +30,4 @@ def state():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
+
